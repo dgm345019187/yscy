@@ -717,3 +717,131 @@ SQL: INSERT INTO `cmf_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','a
 [ 2017-03-02T16:18:06+08:00 ] ::1 /yscy/index.php?g=Admin&m=Rbac&a=authorize&id=2
 NOTIC: D方法实例化没找到模型类Common\Model\AuthAccessModel
 
+[ 2017-03-02T16:46:15+08:00 ] ::1 /yscy/index.php?g=Admin&m=User&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000621s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001527s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000446s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003151s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001712s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001803s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0055s ]
+SQL: SHOW COLUMNS FROM `cmf_role` [ RunTime:0.0038s ]
+NOTIC: [8] Undefined index: validate D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: member_name D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1303 行.
+
+[ 2017-03-02T16:50:23+08:00 ] ::1 /yscy/index.php?g=Admin&m=User&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000807s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001555s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003925s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001898s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001954s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0043s ]
+SQL: SHOW COLUMNS FROM `cmf_role` [ RunTime:0.0036s ]
+NOTIC: [8] Undefined index: validate D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `cmf_member` WHERE `member_name` = 'dgm' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `cmf_member` WHERE `member_email` = '345019188@qq.com' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `cmf_member` (`member_name`,`member_passwd`,`member_email`,`member_time`) VALUES ('dgm','###4726c77e9b53083e4b8a2e46fc22a20e','345019188@qq.com','2017-03-02 16:50:23') [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `cmf_role_user` [ RunTime:0.0153s ]
+SQL: INSERT INTO `cmf_role_user` (`role_id`,`user_id`) VALUES ('2','2') [ RunTime:0.0004s ]
+
+[ 2017-03-02T16:50:34+08:00 ] ::1 /yscy/index.php?g=Admin&m=user&a=edit&id=2
+ERR: 1054:Unknown column 'member_id' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_role` ORDER BY member_id DESC 
+
+[ 2017-03-02T16:55:28+08:00 ] ::1 /yscy/index.php?g=Admin&m=User&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000769s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001554s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003485s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001591s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001641s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0048s ]
+SQL: SHOW COLUMNS FROM `cmf_role` [ RunTime:0.0041s ]
+NOTIC: [8] Undefined index: validate D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `cmf_member` WHERE `member_name` = 'dgm111' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `cmf_member` WHERE `member_email` = '345019188@qq.com' LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-03-02T16:56:30+08:00 ] ::1 /yscy/index.php?g=Admin&m=User&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000483s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001273s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002627s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.002377s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002534s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `cmf_role` [ RunTime:0.0041s ]
+NOTIC: [8] Undefined index: validate D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `cmf_member` WHERE `member_name` = 'dgm11' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `cmf_member` WHERE `member_email` = '345019188@qq.com' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-03-02T16:58:33+08:00 ] ::1 /yscy/index.php?g=Admin&m=User&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000848s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001487s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003605s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001816s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001873s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0068s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `cmf_role` [ RunTime:0.0044s ]
+NOTIC: [8] Undefined index: validate D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `cmf_member` WHERE `member_name` = 'dgm111' AND `member_id` <> '2' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `cmf_member` WHERE `member_email` = '345019188@qq.com' AND `member_id` <> '2' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+NOTIC: [8] Undefined index: member_birthday D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1163 行.
+SQL: UPDATE `cmf_member` SET `member_name`='dgm111',`member_passwd`='###4726c77e9b53083e4b8a2e46fc22a20e',`member_email`='345019188@qq.com' WHERE `member_id` = 2 [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `cmf_role_user` [ RunTime:0.0044s ]
+SQL: DELETE FROM `cmf_role_user` WHERE `user_id` = 0 [ RunTime:0.0003s ]
+SQL: INSERT INTO `cmf_role_user` (`role_id`,`user_id`) VALUES ('2','0') [ RunTime:0.0003s ]
+
+[ 2017-03-02T16:58:49+08:00 ] ::1 /yscy/index.php?g=Admin&m=user&a=ban&id=2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000999s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001577s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003614s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001767s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001847s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0041s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0044s ]
+SQL: SHOW COLUMNS FROM `cmf_role` [ RunTime:0.0041s ]
+SQL: UPDATE `cmf_member` SET `member_state`='0' WHERE `member_id` = 2 AND `user_type` = 1 [ RunTime:0.0004s ]
+
+[ 2017-03-02T16:58:57+08:00 ] ::1 /yscy/index.php?g=Admin&m=user&a=cancelban&id=2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001313s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002795s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001892s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001950s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0041s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0046s ]
+SQL: SHOW COLUMNS FROM `cmf_role` [ RunTime:0.0046s ]
+SQL: UPDATE `cmf_member` SET `member_state`='1' WHERE `member_id` = 2 AND `user_type` = 1 [ RunTime:0.0003s ]
+

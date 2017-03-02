@@ -212,7 +212,7 @@ hello;
     		$this->error("验证码错误！");
     	}
     	
-    	$users_model=M("Users");
+    	$users_model=M("Member");
     	$rules = array(
     			//array(验证字段,验证规则,错误提示,验证条件,附加规则,验证时间)
     			array('username', 'require', '手机号/邮箱/用户名不能为空！', 1 ),
@@ -249,7 +249,7 @@ hello;
                     'last_login_time' => date("Y-m-d H:i:s"),
                     'last_login_ip' => get_client_ip(0,true),
                 );
-                $users_model->where(array('id'=>$result["id"]))->save($data);
+                $users_model->where(array('member_id'=>$result["id"]))->save($data);
                 $session_login_http_referer=session('login_http_referer');
                 $redirect=empty($session_login_http_referer)?__ROOT__."/":$session_login_http_referer;
                 session('login_http_referer','');
@@ -268,13 +268,13 @@ hello;
 
         $username=I('post.username');
         $password=I('post.password');
-        $where = array("user_status"=>1);
+        $where = array("member_state"=>1);
         if(strpos($username,"@")>0){//邮箱登陆
-            $where['user_email']=$username;
+            $where['member_email']=$username;
         }else{
-            $where['user_login']=$username;
+            $where['member_name']=$username;
         }
-        $users_model=M('Users');
+        $users_model=M('member');
         $result = $users_model->where($where)->find();
         $ucenter_syn=C("UCENTER_ENABLED");
         
@@ -289,17 +289,17 @@ hello;
             if($uc_uid>0){
                 if(!$result){
                     $data=array(
-                        'user_login' => $username,
-                        'user_email' => $email,
-                        'user_pass' => sp_password($password),
-                        'last_login_ip' => get_client_ip(0,true),
-                        'create_time' => time(),
-                        'last_login_time' => time(),
-                        'user_status' => '1',
+                        'member_name' => $username,
+                        'member_email' => $email,
+                        'member_passwd' => sp_password($password),
+                        'member_login_ip' => get_client_ip(0,true),
+                        'member_time' => time(),
+                        'member_login_time' => time(),
+                        'member_state' => '1',
                         'user_type'=>2,
                     );
                     $id= $users_model->add($data);
-                    $data['id']=$id;
+                    $data['member_id']=$id;
                     $result=$data;
                 }
         
@@ -308,8 +308,8 @@ hello;
                 switch ($uc_uid){
                     case "-1"://用户不存在，或者被删除
                         if($result){//本应用已经有这个用户
-                            if(sp_compare_password($password, $result['user_pass'])){//本应用已经有这个用户,且密码正确，同步用户
-                                $uc_uid2=uc_user_register($username, $password, $result['user_email']);
+                            if(sp_compare_password($password, $result['member_passwd'])){//本应用已经有这个用户,且密码正确，同步用户
+                                $uc_uid2=uc_user_register($username, $password, $result['member_email']);
                                 if($uc_uid2<0){
                                     $uc_register_errors=array(
                                         "-1"=>"用户名不合法",
@@ -356,14 +356,14 @@ hello;
         }
         //exit();
         if(!empty($result)){
-            if(sp_compare_password($password, $result['user_pass'])|| $ucenter_login_ok){
+            if(sp_compare_password($password, $result['member_passwd'])|| $ucenter_login_ok){
                 session('user',$result);
                 //写入此次登录信息
                 $data = array(
-                    'last_login_time' => date("Y-m-d H:i:s"),
-                    'last_login_ip' => get_client_ip(0,true),
+                    'member_login_time' => date("Y-m-d H:i:s"),
+                    'member_login_ip' => get_client_ip(0,true),
                 );
-                $users_model->where("id=".$result["id"])->save($data);
+                $users_model->where("member_id=".$result["id"])->save($data);
 
                 $session_login_http_referer=session('login_http_referer');
                 $redirect=empty($session_login_http_referer)?__ROOT__."/":$session_login_http_referer;

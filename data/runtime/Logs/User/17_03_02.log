@@ -70,3 +70,345 @@ SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
 SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0041s ]
 SQL: UPDATE `cmf_member` SET `member_state`='0' WHERE `member_id` = 1 AND `user_type` = 2 [ RunTime:0.0003s ]
 
+[ 2017-03-02T17:04:58+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000457s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001065s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002539s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:05:09+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000549s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000770s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002125s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:05:46+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000486s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000718s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002060s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:06:12+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000523s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000943s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002627s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:06:54+08:00 ] ::1 /yscy/index.php?g=User&m=indexadmin&a=cancelban&id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000554s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001293s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002773s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001633s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001697s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0054s ]
+SQL: UPDATE `cmf_member` SET `member_state`='1' WHERE `member_id` = 1 AND `user_type` = 2 [ RunTime:0.0003s ]
+
+[ 2017-03-02T17:07:54+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000442s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000660s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000256s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001768s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:07:57+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000502s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000718s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001989s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:08:12+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000424s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000676s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001823s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:13:10+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000482s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000661s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001859s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:13:17+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000784s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002029s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:13:20+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000477s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000758s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002117s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:16:12+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000513s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000760s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002163s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:16:22+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000479s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000714s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002193s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:16:40+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000741s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002437s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:17:05+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000494s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000807s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002099s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:17:19+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000929s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002235s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:17:48+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000542s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000763s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002181s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:30:33+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000467s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000697s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001985s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:31:14+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000765s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002213s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:31:19+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000467s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000936s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002384s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:32:07+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000914s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001040s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000417s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002849s ]
+
+[ 2017-03-02T17:32:15+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000817s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002186s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0042s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SELECT * FROM `cmf_users` WHERE `user_status` = 1 AND `user_login` = 'dgm111' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-03-02T17:32:42+08:00 ] ::1 /yscy/index.php?g=User&m=indexadmin&a=cancelban&id=2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000488s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001388s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003037s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001632s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001697s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0059s ]
+SQL: UPDATE `cmf_member` SET `member_state`='1' WHERE `member_id` = 2 AND `user_type` = 2 [ RunTime:0.0003s ]
+
+[ 2017-03-02T17:33:16+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000656s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001518s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003117s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0043s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SELECT * FROM `cmf_users` WHERE `user_status` = 1 AND `user_login` = 'admin' LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-03-02T17:33:28+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000828s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002231s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SELECT * FROM `cmf_users` WHERE `user_status` = 1 AND `user_login` = 'admin' LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `cmf_users` SET `last_login_time`='2017-03-02 17:33:28',`last_login_ip`='0.0.0.0' WHERE ( id=1 ) [ RunTime:0.0003s ]
+
+[ 2017-03-02T17:33:31+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000511s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000643s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001890s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:33:37+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000455s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000732s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001979s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:34:11+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000712s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001843s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:34:24+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000667s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001182s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002857s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0102s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SELECT * FROM `cmf_users` WHERE `user_status` = 1 AND `user_login` = 'dgm111' LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2017-03-02T17:34:49+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000863s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002376s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0055s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SELECT * FROM `cmf_users` WHERE `user_status` = 1 AND `user_login` = 'dgm111' LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2017-03-02T17:42:31+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000493s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000715s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002080s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:42:38+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000470s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000843s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002128s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0045s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0046s ]
+SQL: SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `member_name` = 'dgm111' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: id D:\phpstudy\WWW\yscy\application\User\Controller\LoginController.class.php 第 366 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `cmf_member` SET `member_login_time`='2017-03-02 17:42:38',`member_login_ip`='0.0.0.0' WHERE ( member_id= )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `cmf_member` SET `member_login_time`='2017-03-02 17:42:38',`member_login_ip`='0.0.0.0' WHERE ( member_id= )
+
+[ 2017-03-02T17:42:41+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000870s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002226s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:42:52+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000651s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000854s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002471s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:42:55+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000472s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000730s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:42:59+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000501s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000720s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002067s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T17:43:08+08:00 ] ::1 /yscy/index.php?g=user&m=login&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000821s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002155s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined index: auto D:\phpstudy\WWW\yscy\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0041s ]
+SQL: SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `member_name` = 'admin' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: id D:\phpstudy\WWW\yscy\application\User\Controller\LoginController.class.php 第 366 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `cmf_member` SET `member_login_time`='2017-03-02 17:43:08',`member_login_ip`='0.0.0.0' WHERE ( member_id= )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `cmf_member` SET `member_login_time`='2017-03-02 17:43:08',`member_login_ip`='0.0.0.0' WHERE ( member_id= )
+
+[ 2017-03-02T17:43:12+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000648s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001749s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+

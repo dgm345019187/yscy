@@ -12,19 +12,19 @@
 				<div class="control-group">
 					<label class="control-label">{:L('USERNAME')}</label>
 					<div class="controls">
-						<input type="text" name="user_login" value="{$user_login}">
+						<input type="text" name="member_name" value="{$member_name}">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">{:L('PASSWORD')}</label>
 					<div class="controls">
-						<input type="password" name="user_pass" value="" placeholder="******">
+						<input type="password" name="member_passwd" value="" placeholder="******">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">{:L('EMAIL')}</label>
 					<div class="controls">
-						<input type="text" name="user_email" value="{$user_email}">
+						<input type="text" name="member_email" value="{$member_email}">
 					</div>
 				</div>
 				<div class="control-group">
@@ -40,7 +40,7 @@
 				</div>
 			</fieldset>
 			<div class="form-actions">
-				<input type="hidden" name="id" value="{$id}" />
+				<input type="hidden" name="member_id" value="{$member_id}" />
 				<button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
 				<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
 			</div>

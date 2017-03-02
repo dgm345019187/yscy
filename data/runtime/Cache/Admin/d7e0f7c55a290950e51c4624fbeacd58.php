@@ -55,9 +55,9 @@
 		</ul>
         <form class="well form-search" method="post" action="<?php echo U('User/index');?>">
             用户名:
-            <input type="text" name="user_login" style="width: 100px;" value="<?php echo I('request.user_login/s','');?>" placeholder="请输入<?php echo L('USERNAME');?>">
+            <input type="text" name="user_login" style="width: 100px;" value="<?php echo I('request.member_name/s','');?>" placeholder="请输入<?php echo L('USERNAME');?>">
             邮箱:
-            <input type="text" name="user_email" style="width: 100px;" value="<?php echo I('request.user_email/s','');?>" placeholder="请输入<?php echo L('EMAIL');?>">
+            <input type="text" name="user_email" style="width: 100px;" value="<?php echo I('request.member_email/s','');?>" placeholder="请输入<?php echo L('EMAIL');?>">
             <input type="submit" class="btn btn-primary" value="搜索" />
             <a class="btn btn-danger" href="<?php echo U('User/index');?>">清空</a>
         </form>
@@ -76,27 +76,27 @@
 			<tbody>
 				<?php $user_statuses=array("0"=>L('USER_STATUS_BLOCKED'),"1"=>L('USER_STATUS_ACTIVATED'),"2"=>L('USER_STATUS_UNVERIFIED')); ?>
 				<?php if(is_array($users)): foreach($users as $key=>$vo): ?><tr>
-					<td><?php echo ($vo["id"]); ?></td>
-					<td><?php if($vo['user_url']): ?><a href="<?php echo ($vo["user_url"]); ?>" target="_blank" title="<?php echo ($vo["signature"]); ?>"><?php echo ($vo["user_login"]); ?></a><?php else: echo ($vo["user_login"]); endif; ?></td>
-					<td><?php echo ($vo["last_login_ip"]); ?></td>
+					<td><?php echo ($vo["member_id"]); ?></td>
+					<td><?php if($vo['user_url']): ?><a href="<?php echo ($vo["user_url"]); ?>" target="_blank" title="<?php echo ($vo["signature"]); ?>"><?php echo ($vo["member_name"]); ?></a><?php else: echo ($vo["member_name"]); endif; ?></td>
+					<td><?php echo ($vo["member_login_ip"]); ?></td>
 					<td>
-						<?php if($vo['last_login_time'] == 0): echo L('USER_HAVENOT_LOGIN');?>
+						<?php if($vo['member_login_time'] == 0): echo L('USER_HAVENOT_LOGIN');?>
 						<?php else: ?>
-							<?php echo ($vo["last_login_time"]); endif; ?>
+							<?php echo ($vo["member_login_time"]); endif; ?>
 					</td>
-					<td><?php echo ($vo["user_email"]); ?></td>
-					<td><?php echo ($user_statuses[$vo['user_status']]); ?></td>
+					<td><?php echo ($vo["member_email"]); ?></td>
+					<td><?php echo ($user_statuses[$vo['member_state']]); ?></td>
 					<td>
-						<?php if($vo['id'] == 1 || $vo['id'] == sp_get_current_admin_id()): ?><font color="#cccccc"><?php echo L('EDIT');?></font> | <font color="#cccccc"><?php echo L('DELETE');?></font> |
-							<?php if($vo['user_status'] == 1): ?><font color="#cccccc"><?php echo L('BLOCK_USER');?></font>
+						<?php if($vo['member_id'] == 1 || $vo['member_id'] == sp_get_current_admin_id()): ?><font color="#cccccc"><?php echo L('EDIT');?></font> | <font color="#cccccc"><?php echo L('DELETE');?></font> |
+							<?php if($vo['member_state'] == 1): ?><font color="#cccccc"><?php echo L('BLOCK_USER');?></font>
 							<?php else: ?>
 								<font color="#cccccc"><?php echo L('ACTIVATE_USER');?></font><?php endif; ?>
 						<?php else: ?>
-							<a href='<?php echo U("user/edit",array("id"=>$vo["id"]));?>'><?php echo L('EDIT');?></a> |
-							<?php if($vo['user_status'] == 1): ?><a href="<?php echo U('user/ban',array('id'=>$vo['id']));?>" class="js-ajax-dialog-btn" data-msg="<?php echo L('BLOCK_USER_CONFIRM_MESSAGE');?>"><?php echo L('BLOCK_USER');?></a> | 
+							<a href='<?php echo U("user/edit",array("id"=>$vo["member_id"]));?>'><?php echo L('EDIT');?></a> |
+							<?php if($vo['member_state'] == 1): ?><a href="<?php echo U('user/ban',array('id'=>$vo['member_id']));?>" class="js-ajax-dialog-btn" data-msg="<?php echo L('BLOCK_USER_CONFIRM_MESSAGE');?>"><?php echo L('BLOCK_USER');?></a> | 
 							<?php else: ?>
-								<a href="<?php echo U('user/cancelban',array('id'=>$vo['id']));?>" class="js-ajax-dialog-btn" data-msg="<?php echo L('ACTIVATE_USER_CONFIRM_MESSAGE');?>"><?php echo L('ACTIVATE_USER');?></a> |<?php endif; ?>
-							<a class="js-ajax-delete" href="<?php echo U('user/delete',array('id'=>$vo['id']));?>"><?php echo L('DELETE');?></a><?php endif; ?>
+								<a href="<?php echo U('user/cancelban',array('id'=>$vo['member_id']));?>" class="js-ajax-dialog-btn" data-msg="<?php echo L('ACTIVATE_USER_CONFIRM_MESSAGE');?>"><?php echo L('ACTIVATE_USER');?></a> |<?php endif; ?>
+							<a class="js-ajax-delete" href="<?php echo U('user/delete',array('id'=>$vo['member_id']));?>"><?php echo L('DELETE');?></a><?php endif; ?>
 					</td>
 				</tr><?php endforeach; endif; ?>
 			</tbody>

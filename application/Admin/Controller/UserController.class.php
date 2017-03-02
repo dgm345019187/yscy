@@ -86,7 +86,7 @@ class UserController extends AdminbaseController{
 	// 管理员编辑
 	public function edit(){
 	    $id = I('get.id',0,'intval');
-		$roles=$this->role_model->where(array('member_state' => 1))->order("member_id DESC")->select();
+		$roles=$this->role_model->where(array('state' => 1))->order("id DESC")->select();
 		$this->assign("roles",$roles);
 		$role_user_model=M("RoleUser");
 		$role_ids=$role_user_model->where(array("user_id"=>$id))->getField("role_id",true);
