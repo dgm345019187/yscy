@@ -100,18 +100,18 @@ class SettingController extends AdminbaseController{
 			if(empty($_POST['password'])){
 				$this->error("新密码不能为空！");
 			}
-			$user_obj = D("Common/Users");
+			$user_obj = D("Common/Member");
 			$uid=sp_get_current_admin_id();
-			$admin=$user_obj->where(array("id"=>$uid))->find();
+			$admin=$user_obj->where(array("member_id"=>$uid))->find();
 			$old_password=I('post.old_password');
 			$password=I('post.password');
-			if(sp_compare_password($old_password,$admin['user_pass'])){
+			if(sp_compare_password($old_password,$admin['member_passwd'])){
 				if($password==I('post.repassword')){
-					if(sp_compare_password($password,$admin['user_pass'])){
+					if(sp_compare_password($password,$admin['member_passwd'])){
 						$this->error("新密码不能和原始密码相同！");
 					}else{
-						$data['user_pass']=sp_password($password);
-						$data['id']=$uid;
+						$data['member_passwd']=sp_password($password);
+						$data['member_id']=$uid;
 						$r=$user_obj->save($data);
 						if ($r!==false) {
 							$this->success("修改成功！");

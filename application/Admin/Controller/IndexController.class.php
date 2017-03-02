@@ -19,7 +19,6 @@ class IndexController extends AdminbaseController {
      */
     public function index() {
         $this->load_menu_lang();
-    	
         $this->assign("menus", D("Common/Menu")->menu_json());
        	$this->display();
     }

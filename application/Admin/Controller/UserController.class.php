@@ -9,7 +9,7 @@ class UserController extends AdminbaseController{
 
 	public function _initialize() {
 		parent::_initialize();
-		$this->users_model = D("Common/Users");
+		$this->users_model = D("Common/Member");
 		$this->role_model = D("Common/Role");
 	}
 
@@ -20,24 +20,24 @@ class UserController extends AdminbaseController{
 		$user_login = I('request.user_login');
 		$user_email = trim(I('request.user_email'));
 		if($user_login){
-			$where['user_login'] = array('like',"%$user_login%");
+			$where['member_name'] = array('like',"%$user_login%");
 		}
 		
 		if($user_email){
-			$where['user_email'] = array('like',"%$user_email%");;
+			$where['member_email'] = array('like',"%$user_email%");;
 		}
 		
 		$count=$this->users_model->where($where)->count();
 		$page = $this->page($count, 20);
         $users = $this->users_model
             ->where($where)
-            ->order("create_time DESC")
+            ->order("member_time DESC")
             ->limit($page->firstRow, $page->listRows)
             ->select();
 		$roles_src=$this->role_model->select();
 		$roles=array();
 		foreach ($roles_src as $r){
-			$roleid=$r['id'];
+			$roleid=$r['member_id'];
 			$roles["$roleid"]=$r;
 		}
 		$this->assign("page", $page->show('Admin'));
@@ -48,7 +48,7 @@ class UserController extends AdminbaseController{
 
 	// 管理员添加
 	public function add(){
-		$roles=$this->role_model->where(array('status' => 1))->order("id DESC")->select();
+		$roles=$this->role_model->where(array('member_state' => 1))->order("id DESC")->select();
 		$this->assign("roles",$roles);
 		$this->display();
 	}
@@ -86,13 +86,13 @@ class UserController extends AdminbaseController{
 	// 管理员编辑
 	public function edit(){
 	    $id = I('get.id',0,'intval');
-		$roles=$this->role_model->where(array('status' => 1))->order("id DESC")->select();
+		$roles=$this->role_model->where(array('member_state' => 1))->order("member_id DESC")->select();
 		$this->assign("roles",$roles);
 		$role_user_model=M("RoleUser");
 		$role_ids=$role_user_model->where(array("user_id"=>$id))->getField("role_id",true);
 		$this->assign("role_ids",$role_ids);
 
-		$user=$this->users_model->where(array("id"=>$id))->find();
+		$user=$this->users_model->where(array("member_id"=>$id))->find();
 		$this->assign($user);
 		$this->display();
 	}
@@ -101,8 +101,8 @@ class UserController extends AdminbaseController{
 	public function edit_post(){
 		if (IS_POST) {
 			if(!empty($_POST['role_id']) && is_array($_POST['role_id'])){
-				if(empty($_POST['user_pass'])){
-					unset($_POST['user_pass']);
+				if(empty($_POST['member_passwd'])){
+					unset($_POST['member_passwd']);
 				}
 				$role_ids = I('post.role_id/a');
 				unset($_POST['role_id']);
@@ -150,20 +150,24 @@ class UserController extends AdminbaseController{
 	// 管理员个人信息修改
 	public function userinfo(){
 		$id=sp_get_current_admin_id();
-		$user=$this->users_model->where(array("id"=>$id))->find();
+		$user=$this->users_model->where(array("member_id"=>$id))->find();
+               
 		$this->assign($user);
+                
 		$this->display();
 	}
 
 	// 管理员个人信息修改提交
 	public function userinfo_post(){
 		if (IS_POST) {
-			$_POST['id']=sp_get_current_admin_id();
+			$_POST['member_id']=sp_get_current_admin_id();
 			$create_result=$this->users_model
-			->field("id,user_nicename,sex,birthday,user_url,signature")
+			->field("member_passwd,user_nicename,member_sex,member_birthday,user_url,signature")
 			->create();
+                       $create_result["member_id"]=$_POST['member_id'];
+                      
 			if ($create_result!==false) {
-				if ($this->users_model->save()!==false) {
+				if ($this->users_model->save($create_result)!==false) {
 					$this->success("保存成功！");
 				} else {
 					$this->error("保存失败！");
@@ -178,7 +182,7 @@ class UserController extends AdminbaseController{
     public function ban(){
         $id = I('get.id',0,'intval');
     	if (!empty($id)) {
-    		$result = $this->users_model->where(array("id"=>$id,"user_type"=>1))->setField('user_status','0');
+    		$result = $this->users_model->where(array("member_id"=>$id,"user_type"=>1))->setField('member_state','0');
     		if ($result!==false) {
     			$this->success("管理员停用成功！", U("user/index"));
     		} else {
@@ -193,7 +197,7 @@ class UserController extends AdminbaseController{
     public function cancelban(){
     	$id = I('get.id',0,'intval');
     	if (!empty($id)) {
-    		$result = $this->users_model->where(array("id"=>$id,"user_type"=>1))->setField('user_status','1');
+    		$result = $this->users_model->where(array("member_id"=>$id,"user_type"=>1))->setField('member_state','1');
     		if ($result!==false) {
     			$this->success("管理员启用成功！", U("user/index"));
     		} else {

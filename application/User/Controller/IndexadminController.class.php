@@ -11,27 +11,27 @@ class IndexadminController extends AdminbaseController {
         $request=I('request.');
         
         if(!empty($request['uid'])){
-            $where['id']=intval($request['uid']);
+            $where['member_id']=intval($request['uid']);
         }
         
         if(!empty($request['keyword'])){
             $keyword=$request['keyword'];
             $keyword_complex=array();
-            $keyword_complex['user_login']  = array('like', "%$keyword%");
+            $keyword_complex['member_name']  = array('like', "%$keyword%");
             $keyword_complex['user_nicename']  = array('like',"%$keyword%");
-            $keyword_complex['user_email']  = array('like',"%$keyword%");
+            $keyword_complex['member_email']  = array('like',"%$keyword%");
             $keyword_complex['_logic'] = 'or';
             $where['_complex'] = $keyword_complex;
         }
         
-    	$users_model=M("Users");
+    	$users_model=M("Member");
     	
     	$count=$users_model->where($where)->count();
     	$page = $this->page($count, 20);
     	
     	$list = $users_model
     	->where($where)
-    	->order("create_time DESC")
+    	->order("member_time DESC")
     	->limit($page->firstRow . ',' . $page->listRows)
     	->select();
     	
@@ -45,7 +45,7 @@ class IndexadminController extends AdminbaseController {
     public function ban(){
     	$id= I('get.id',0,'intval');
     	if ($id) {
-    		$result = M("Users")->where(array("id"=>$id,"user_type"=>2))->setField('user_status',0);
+    		$result = M("Member")->where(array("member_id"=>$id,"user_type"=>2))->setField('member_state',0);
     		if ($result) {
     			$this->success("会员拉黑成功！", U("indexadmin/index"));
     		} else {
@@ -60,7 +60,7 @@ class IndexadminController extends AdminbaseController {
     public function cancelban(){
     	$id= I('get.id',0,'intval');
     	if ($id) {
-    		$result = M("Users")->where(array("id"=>$id,"user_type"=>2))->setField('user_status',1);
+    		$result = M("Member")->where(array("member_id"=>$id,"user_type"=>2))->setField('member_state',1);
     		if ($result) {
     			$this->success("会员启用成功！", U("indexadmin/index"));
     		} else {

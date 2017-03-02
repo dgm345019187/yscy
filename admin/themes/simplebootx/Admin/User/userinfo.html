@@ -11,17 +11,18 @@
 				<div class="control-group">
 					<label class="control-label" for="input-user_nicename"><span class="form-required">*</span>{:L('NICENAME')}</label>
 					<div class="controls">
-						<input type="hidden" name="id" value="{$id}">
+						<input type="hidden" name="member_id" value="{$member_id}">
 						<input type="text" id="input-user_nicename" name="user_nicename" value="{$user_nicename}" required>
 					</div>
 				</div>
+                          
 				<div class="control-group">
 					<label class="control-label" for="input-gender">{:L('GENDER')}</label>
 					<div class="controls">
-						<select name="sex" id="input-gender">
+						<select name="member_sex" id="input-gender">
 							<php>$sexs=array("0"=>L('GENDER_SECRECY'),"1"=>L('MALE'),"2"=>L('FEMALE'));</php>
 							<foreach name="sexs" item="vo">
-								<php>$sexselected=$key==$sex?"selected":"";</php>
+								<php>$sexselected=$key==$member_sex?"selected":"";</php>
 								<option value="{$key}"{$sexselected}>{$vo}</option>
 							</foreach>
 						</select>
@@ -30,7 +31,7 @@
 				<div class="control-group">
 					<label class="control-label" for="input-birthday"><span class="form-required">*</span>{:L('BIRTHDAY')}</label>
 					<div class="controls">
-						<input class="js-date" type="text" id="input-birthday" placeholder="2013-01-04" name="birthday" value="{$birthday}" required>
+						<input class="js-date" type="text" id="input-birthday" placeholder="2013-01-04" name="member_birthday" value="{$member_birthday}" required>
 					</div>
 				</div>
 				<div class="control-group">

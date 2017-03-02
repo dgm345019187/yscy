@@ -1,0 +1,72 @@
+[ 2017-03-02T13:37:41+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000699s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000935s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002769s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T13:49:01+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000546s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001091s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002531s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T14:37:25+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000627s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001675s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T15:44:18+08:00 ] ::1 /yscy/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000597s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000763s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002306s ]
+NOTIC: [8] Undefined index: url D:\phpstudy\WWW\yscy\application\Common\Controller\AppframeController.class.php 第 22 行.
+
+[ 2017-03-02T15:59:09+08:00 ] ::1 /yscy/index.php?g=User&m=indexadmin&a=ban&id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000606s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001518s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003024s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001779s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001870s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0053s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `cmf_users` SET `user_status`='0' WHERE `id` = 1 AND `user_type` = 2 [ RunTime:0.0003s ]
+
+[ 2017-03-02T15:59:28+08:00 ] ::1 /yscy/index.php?g=User&m=indexadmin&a=ban&id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000656s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001499s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000492s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003139s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.002141s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002224s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0041s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `cmf_users` SET `user_status`='0' WHERE `id` = 1 AND `user_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-03-02T16:02:00+08:00 ] ::1 /yscy/index.php?g=User&m=indexadmin&a=ban&id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000557s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001328s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002856s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001660s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001752s ]
+SQL: SHOW COLUMNS FROM `cmf_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `cmf_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0041s ]
+SQL: UPDATE `cmf_member` SET `member_state`='0' WHERE `member_id` = 1 AND `user_type` = 2 [ RunTime:0.0003s ]
+

@@ -59,31 +59,32 @@ class PublicController extends AdminbaseController {
     	if(!sp_check_verify_code()){
     		$this->error(L('CAPTCHA_NOT_RIGHT'));
     	}else{
-    		$user = D("Common/Users");
+    		$user = D("Common/Member");
     		if(strpos($name,"@")>0){//邮箱登陆
-    			$where['user_email']=$name;
+    			$where['member_email']=$name;
     		}else{
-    			$where['user_login']=$name;
+    			$where['member_name']=$name;
     		}
     		
     		$result = $user->where($where)->find();
+              
     		if(!empty($result) && $result['user_type']==1){
-    			if(sp_compare_password($pass,$result['user_pass'])){
+    			if(sp_compare_password($pass,$result['member_passwd'])){
     				
     				$role_user_model=M("RoleUser");
     				
     				$role_user_join = C('DB_PREFIX').'role as b on a.role_id =b.id';
     				
-    				$groups=$role_user_model->alias("a")->join($role_user_join)->where(array("user_id"=>$result["id"],"status"=>1))->getField("role_id",true);
-    				
-    				if( $result["id"]!=1 && ( empty($groups) || empty($result['user_status']) ) ){
+    				$groups=$role_user_model->alias("a")->join($role_user_join)->where(array("user_id"=>$result["member_id"],"status"=>1))->getField("role_id",true);
+                             
+    				if( $result["member_id"]!=1 && ( empty($groups) || empty($result['member_state']) ) ){
     					$this->error(L('USE_DISABLED'));
     				}
     				//登入成功页面跳转
-    				session('ADMIN_ID',$result["id"]);
-    				session('name',$result["user_login"]);
-    				$result['last_login_ip']=get_client_ip(0,true);
-    				$result['last_login_time']=date("Y-m-d H:i:s");
+    				session('ADMIN_ID',$result["member_id"]);
+    				session('name',$result["member_name"]);
+    				$result['member_login_ip']=get_client_ip(0,true);
+    				$result['member_login_time']=date("Y-m-d H:i:s");
     				$user->save($result);
     				cookie("admin_username",$name,3600*24*30);
     				$this->success(L('LOGIN_SUCCESS'),U("Index/index"));
