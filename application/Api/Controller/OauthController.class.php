@@ -168,14 +168,14 @@ class OauthController extends HomebaseController {
 			//本地用户中创建对应一条数据
 			$new_user_data = array(
 					'user_nicename' => $user_info['name'],
-					'avatar' => $user_info['head'],
-					'last_login_time' => date("Y-m-d H:i:s"),
-					'last_login_ip' => get_client_ip(0,true),
-					'create_time' => date("Y-m-d H:i:s"),
-					'user_status' => '1',
+					'member_avatar' => $user_info['head'],
+					'member_login_time' => date("Y-m-d H:i:s"),
+					'member_login_ip' => get_client_ip(0,true),
+					'member_time' => date("Y-m-d H:i:s"),
+					'member_state' => '1',
 					"user_type"	  => '2',//会员
 			);
-			$users_model=M("Users");
+			$users_model=M("Member");
 			$new_user_id = $users_model->add($new_user_data);
 			
 			if($new_user_id){
@@ -200,7 +200,7 @@ class OauthController extends HomebaseController {
 					session('user',$new_user_data);
 					redirect($this->_get_login_redirect());
 				}else{
-					$users_model->where(array("id"=>$new_user_id))->delete();
+					$users_model->where(array("member_id"=>$new_user_id))->delete();
 					$this->error("登陆失败",$this->_get_login_redirect());
 				}
 			}else{

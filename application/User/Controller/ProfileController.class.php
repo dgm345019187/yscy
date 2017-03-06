@@ -18,8 +18,8 @@ class ProfileController extends MemberbaseController {
     // 编辑用户资料提交
     public function edit_post() {
     	if(IS_POST){
-    		$_POST['id']=$this->userid;
-    		if ($this->users_model->field('id,user_nicename,sex,birthday,user_url,signature')->create()!==false) {
+    		$_POST['member_id']=$this->userid;
+    		if ($this->users_model->field('member_id,user_nicename,member_sex,member_birthday,user_url,signature')->create()!==false) {
 				if ($this->users_model->save()!==false) {
 					$this->user=$this->users_model->find($this->userid);
 					sp_update_current_user($this->user);
@@ -54,14 +54,14 @@ class ProfileController extends MemberbaseController {
     		}
     		
     		$uid=sp_get_current_userid();
-    		$admin=$this->users_model->where(array('id'=>$uid))->find();
-    		if(sp_compare_password($old_password, $admin['user_pass'])){
+    		$admin=$this->users_model->where(array('member_id'=>$uid))->find();
+    		if(sp_compare_password($old_password, $admin['member_passwd'])){
     			if($password==I('post.repassword')){
     				if(sp_compare_password($password, $admin['user_pass'])){
     					$this->error("新密码不能和原始密码相同！");
     				}else{
-    					$data['user_pass']=sp_password($password);
-    					$data['id']=$uid;
+    					$data['member_passwd']=sp_password($password);
+    					$data['member_id']=$uid;
     					$r=$this->users_model->save($data);
     					if ($r!==false) {
     						$this->success("修改成功！");
@@ -155,7 +155,8 @@ class ProfileController extends MemberbaseController {
     		}
     		if($result===true){
     		    $userid=sp_get_current_userid();
-    		    $result=$this->users_model->where(array("id"=>$userid))->save(array("avatar"=>'avatar/'.$avatar));
+               
+    		    $result=$this->users_model->where(array("member_id"=>$userid))->save(array("member_avatar"=>'avatar/'.$avatar));
     		    session('user.avatar','avatar/'.$avatar);
     		    if($result){
     		        $this->success("头像更新成功！");

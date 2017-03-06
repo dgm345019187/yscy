@@ -98,7 +98,7 @@ class iAuth{
     private function getUserInfo($uid) {
     	static $userinfo=array();
     	if(!isset($userinfo[$uid])){
-    		$userinfo[$uid]=M("Users")->where(array('id'=>$uid))->find();
+    		$userinfo[$uid]=M("Member")->where(array('member_id'=>$uid))->find();
     	}
     	return $userinfo[$uid];
     }

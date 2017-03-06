@@ -4,10 +4,10 @@
  */
 return array(
     'DB_TYPE' => 'mysql',
-    'DB_HOST' => 'localhost',
+    'DB_HOST' => '192.168.1.22',
     'DB_NAME' => 'thinkcmf',
-    'DB_USER' => 'root',
-    'DB_PWD' => 'root',
+    'DB_USER' => 'mpmysql',
+    'DB_PWD' => 'mysql123$%^',
     'DB_PORT' => '3306',
     'DB_PREFIX' => 'cmf_',
     //密钥

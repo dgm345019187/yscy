@@ -3,6 +3,7 @@
  * 入口文件
  * Some rights reserved：www.thinkcmf.com
  */
+define('API_TOKEN', 'yscs');
 if (ini_get('magic_quotes_gpc')) {
 	function stripslashesRecursive(array $array){
 		foreach ($array as $k => $v) {

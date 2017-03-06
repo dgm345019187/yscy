@@ -88,7 +88,9 @@ class MailerController extends AdminbaseController {
             $model = M(); // 实例化User对象
             if ($model->validate($rules)->create()!==false){
                 $data=I('post.');
+                
                 $result=sp_send_email($data['to'], $data['subject'], $data['content']);
+    
                 if($result && empty($result['error'])){
                     $this->success('发送成功！');
                 }else{

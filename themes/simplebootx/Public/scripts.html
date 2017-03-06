@@ -22,6 +22,7 @@ $(function(){
 	});
 	
 	$.post("{:U('user/index/is_login')}",{},function(data){
+          
 		if(data.status==1){
 			if(data.user.avatar){
 				$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"{:sp_get_image_url('[AVATAR]','!avatar')}".replace('[AVATAR]',data.user.avatar));

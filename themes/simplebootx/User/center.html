@@ -31,10 +31,10 @@
                                    <div class="tab-pane active" id="one">
                                    		  <div class="span2">
                                    		  <a href="{:U('profile/avatar')}">
-                                   			<if condition="empty($avatar)">
+                                   			<if condition="empty($member_avatar)">
 								            <img src="__TMPL__Public/assets/images/headicon_128.png" class="headicon"/>
 								            <else/>
-								            <img src="{:sp_get_user_avatar_url($avatar)}" class="headicon"/>
+								            <img src="{:sp_get_user_avatar_url($member_avatar)}" class="headicon"/>
 								            </if>
 								          </a>
 										  </div>      
@@ -49,16 +49,16 @@
                                    				<label class="control-label" for="input-sex">性别</label>
                                    				<div class="controls">
                                    				<php>
-                                   				$sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛");
+                                   				$sexs=array("0"=>"保密","1"=>"男","2"=>"女");
                                    				
                                    				</php>
-                                   					{$sexs[$sex]}
+                                   					{$sexs[$member_sex]}
                                    				</div>
                                    			</div>
                                    			<div class="control-group">
                                    				<label class="control-label" for="input-birthday">生日</label>
                                    				<div class="controls">
-                                   					{$birthday|default='未填写'}
+                                   					{$member_birthday|default='未填写'}
                                    				</div>
                                    			</div>
                                    			<div class="control-group">

@@ -49,11 +49,11 @@ class CommentController extends MemberbaseController{
 			if(!empty($session_user)){//用户已登陆,且是本站会员
 				$uid=session('user.id');
 				$_POST['uid']=$uid;
-				$users_model=M('Users');
-				$user=$users_model->field("user_login,user_email,user_nicename")->where("id=$uid")->find();
-				$username=$user['user_login'];
+				$users_model=M('Member');
+				$user=$users_model->field("member_name,member_email,user_nicename")->where("member_id=$uid")->find();
+				$username=$user['member_name'];
 				$user_nicename=$user['user_nicename'];
-				$email=$user['user_email'];
+				$email=$user['member_email'];
 				$_POST['full_name']=empty($user_nicename)?$username:$user_nicename;
 				$_POST['email']=$email;
 			}

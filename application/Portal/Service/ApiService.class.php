@@ -58,7 +58,7 @@ class ApiService {
     	}
     
     	$join = '__POSTS__ as posts on term_relationships.object_id = posts.id';
-    	$join2= '__USERS__ as users on posts.post_author = users.id';
+    	$join2= '__MEMBER__ as users on posts.post_author = users.member_id';
     	
     	$term_relationships_model= M("TermRelationships");
     	$content=array();

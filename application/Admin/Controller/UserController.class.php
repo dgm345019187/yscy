@@ -138,7 +138,7 @@ class UserController extends AdminbaseController{
 		if($id==1){
 			$this->error("最高管理员不能删除！");
 		}
-
+              
 		if ($this->users_model->delete($id)!==false) {
 			M("RoleUser")->where(array("user_id"=>$id))->delete();
 			$this->success("删除成功！");

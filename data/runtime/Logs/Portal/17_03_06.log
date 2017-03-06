@@ -1,0 +1,161 @@
+[ 2017-03-06T11:40:45+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T11:41:01+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=6
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T11:41:06+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=4
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:04:27+08:00 ] ::1 /yscy/index.php?g=&m=AdminPost&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001456s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003037s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001808s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.001918s ]
+SQL: SHOW COLUMNS FROM `cmf_member` [ RunTime:0.0064s ]
+SQL: SELECT * FROM `cmf_member` WHERE `member_id` = 1 LIMIT 1   [ RunTime:0.0035s ]
+SQL: SHOW COLUMNS FROM `cmf_posts` [ RunTime:0.0055s ]
+SQL: SHOW COLUMNS FROM `cmf_terms` [ RunTime:0.0068s ]
+SQL: SHOW COLUMNS FROM `cmf_term_relationships` [ RunTime:0.0050s ]
+SQL: INSERT INTO `cmf_posts` (`post_title`,`post_keywords`,`post_source`,`post_linker`,`post_zuozhe`,`post_excerpt`,`post_date`,`post_status`,`istop`,`recommended`,`post_content`,`post_modified`,`post_author`,`smeta`) VALUES ('两会','两会','两会','两会','两会','两会','2017-03-06 12:03:23','1','0','0','<p>两会</p><p>两会</p><p>两会</p>','2017-03-06 12:04:27','1','{\"thumb\":\"\",\"template\":\"list\"}') [ RunTime:0.0172s ]
+SQL: INSERT INTO `cmf_term_relationships` (`term_id`,`object_id`) VALUES ('5','4') [ RunTime:0.0188s ]
+
+[ 2017-03-06T12:04:39+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:04:43+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:04:45+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:04:53+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:04:57+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:05:02+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename,b.term_id FROM cmf_posts a INNER JOIN cmf_term_relationships b ON a.id = b.object_id INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE a.id = 4 AND b.term_id = 5 LIMIT 1  
+
+[ 2017-03-06T12:05:34+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:07:36+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:07:38+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename,b.term_id FROM cmf_posts a INNER JOIN cmf_term_relationships b ON a.id = b.object_id INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE a.id = 4 AND b.term_id = 5 LIMIT 1  
+
+[ 2017-03-06T12:08:53+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:08:56+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:09:02+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:09:04+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:11:18+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:11:19+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:12:52+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:12:57+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:13:01+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:15:48+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:15:52+08:00 ] ::1 /yscy/index.php?g=&m=article&a=index&id=4&cid=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:15:57+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T12:16:07+08:00 ] ::1 /yscy/index.php?m=list&a=index&id=5
+ERR: 1054:Unknown column 'create_time' in 'order clause'
+ [ SQL语句 ] : SELECT * FROM `cmf_member` WHERE `member_state` = 1 AND `user_type` = 2 ORDER BY create_time desc LIMIT 0,8  
+
+[ 2017-03-06T15:21:55+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename FROM cmf_posts a INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE `post_status` <> 3 AND `post_type` = 2 ORDER BY a.post_date DESC LIMIT 0,20  
+
+[ 2017-03-06T15:21:59+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename FROM cmf_posts a INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE `post_status` <> 3 AND `post_type` = 2 ORDER BY a.post_date DESC LIMIT 0,20  
+
+[ 2017-03-06T15:22:07+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=recyclebin
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename FROM cmf_posts a INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE `post_status` = 3 AND `post_type` = 2 ORDER BY a.post_date DESC LIMIT 0,20  
+
+[ 2017-03-06T16:47:37+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename FROM cmf_posts a INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE `post_status` <> 3 AND `post_type` = 2 ORDER BY a.post_date DESC LIMIT 0,20  
+
+[ 2017-03-06T16:48:25+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename FROM cmf_posts a INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE `post_status` <> 3 AND `post_type` = 2 ORDER BY a.post_date DESC LIMIT 0,20  
+
+[ 2017-03-06T16:48:29+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename FROM cmf_posts a INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE `post_status` <> 3 AND `post_type` = 2 ORDER BY a.post_date DESC LIMIT 0,20  
+
+[ 2017-03-06T16:53:05+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+ERR: 1054:Unknown column 'c.user_login' in 'field list'
+ [ SQL语句 ] : SELECT a.*,c.user_login,c.user_nicename FROM cmf_posts a INNER JOIN cmf_member c ON a.post_author = c.member_id  WHERE `post_status` <> 3 AND `post_type` = 2 ORDER BY a.post_date DESC LIMIT 0,20  
+
+[ 2017-03-06T16:57:30+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+
+[ 2017-03-06T16:57:38+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=recyclebin
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+
+[ 2017-03-06T16:57:43+08:00 ] ::1 /yscy/index.php?g=Portal&m=AdminPage&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\PostsModel
+

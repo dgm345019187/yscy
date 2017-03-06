@@ -51,7 +51,7 @@
 						<th width="160">{:L('KEYWORDS')}/{:L('SOURCE')}/{:L('ABSTRACT')}/{:L('THUMBNAIL')}</th>
 						<th width="100">{:L('PUBLISH_DATE')}</th>
 						<th width="50">{:L('STATUS')}</th>
-						<th width="70">{:L('ACTIONS')}</th>
+						<th width="140">{:L('ACTIONS')}</th>
 					</tr>
 				</thead>
 				<foreach name="posts" item="vo">
@@ -68,7 +68,7 @@
 							{$vo.post_title}
 						</notempty>
 					</td>
-					<td>{$vo.user_nicename|default=$vo.user_login}</td>
+					<td>{$vo.post_zuozhe}</td>
 					<td>{$vo.post_hits}</td>
 					<td>
 						<notempty name="vo.comment_count">
@@ -121,7 +121,8 @@
 					</td>
 					<td>
 						<a href="{:U('AdminPost/edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a> | 
-						<a href="{:U('AdminPost/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+						<a href="{:U('AdminPost/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>｜
+                                                <a href="{:U('AdminPost/correlation',array('id'=>$vo['id']))}" >关联文章</a> 
 					</td>
 				</tr>
 				</foreach>

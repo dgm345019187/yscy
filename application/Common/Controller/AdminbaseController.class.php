@@ -28,8 +28,8 @@ class AdminbaseController extends AppframeController {
 	    $session_admin_id=session('ADMIN_ID');
 	    
     	if(!empty($session_admin_id)){
-    		$users_obj= M("Users");
-    		$user=$users_obj->where(array('id'=>$session_admin_id))->find();
+    		$users_obj= M("Member");
+    		$user=$users_obj->where(array('member_id'=>$session_admin_id))->find();
     		if(!$this->check_access($session_admin_id)){
 				$this->error("您没有访问权限！");
 			}

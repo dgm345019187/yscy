@@ -54,12 +54,7 @@
  $effected_id="main-menu"; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>"; $ul_class="dropdown-menu" ; $li_class="li-class" ; $style="nav"; $showlevel=6; $dropdown='dropdown'; echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown); ?>
 		
 		<ul class="nav pull-right" id="main-menu-user">
-			<!-- <li class="user login" style="margin-left: 5px;">
-	            <a class="dropdown-toggle user notifactions" href="<?php echo U('user/notification/index');?>">
-	            <i class="fa fa-envelope"></i>
-	            <span class="count">0</span>
-	            </a>
-          	</li> -->
+	
 			<li class="dropdown user login">
 	            <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
 	            <img src="/yscy/themes/simplebootx/Public/assets/images/headicon.png" class="headicon"/>
@@ -162,7 +157,7 @@
 	        	<div class="headtitle">
 	        		<h2>最新加入</h2>
 	        	</div>
-	        	<?php $last_users=sp_get_users("field:*;limit:0,8;order:create_time desc;"); ?>
+	        	<?php $last_users=sp_get_users("field:*;limit:0,8;order:member_time desc;"); ?>
 	        	<ul class="list-unstyled tc-photos margin-bottom-30">
 	        		<?php if(is_array($last_users)): foreach($last_users as $key=>$vo): ?><li>
 	                    <a href="<?php echo U('user/index/index',array('id'=>$vo['id']));?>">
@@ -261,6 +256,7 @@ $(function(){
 	});
 	
 	$.post("<?php echo U('user/index/is_login');?>",{},function(data){
+          
 		if(data.status==1){
 			if(data.user.avatar){
 				$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"<?php echo sp_get_image_url('[AVATAR]','!avatar');?>".replace('[AVATAR]',data.user.avatar));

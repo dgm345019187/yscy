@@ -33,12 +33,12 @@
                                    				<label class="control-label" for="input-sex">性别</label>
                                    				<div class="controls">
                                    					<php>
-	                                   				$sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛");
+	                                   				$sexs=array("0"=>"保密","1"=>"男","2"=>"女");
 	                                   				</php>
-                                   					<select id="input-sex" name="sex">
+                                   					<select id="input-sex" name="member_sex">
                                    						<foreach name="sexs" item="vo">
-                                   						<php>$sexselected=$key==$sex?"selected":"";</php>
-                                   							<option value="{$key}" {$sexselected}>{$vo}</option>
+                                   						<php>$sexselected=$key==$member_sex?"selected":"";</php>
+								<option value="{$key}"{$sexselected}>{$vo}</option>
                                    						</foreach>
                                    					</select>
                                    				</div>
@@ -46,7 +46,7 @@
                                    			<div class="control-group">
                                    				<label class="control-label" for="input-birthday">生日</label>
                                    				<div class="controls">
-                                   					<input class="js-date" type="text" id="input-birthday" placeholder="2013-01-04" name="birthday" value="{$birthday}">
+                                   					<input class="js-date" type="text" id="input-birthday" placeholder="2013-01-04" name="member_birthday" value="{$member_birthday}">
                                    				</div>
                                    			</div>
                                    			<div class="control-group">

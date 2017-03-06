@@ -51,9 +51,11 @@
 				</ul>
 				<div id="login_btn_wraper">
 					<button type="submit" name="submit" class="btn js-ajax-submit" data-loadingmsg="<?php echo L('LOADING');?>"><?php echo L('LOGIN');?></button>
+                                       
 				</div>
 			</div>
 		</form>
+                 <button id='ss'>测试</button>
 	</div>
 
 <script>
@@ -64,10 +66,27 @@ var GV = {
 };
 </script>
 <script src="/yscy/public/js/wind.js"></script>
+<script src="/yscy/public/js/server.js"></script>
+<script src="/yscy/public/js/md5.min.js"></script>
 <script src="/yscy/public/js/jquery.js"></script>
 <script type="text/javascript" src="/yscy/public/js/common.js"></script>
 <script>
 ;(function(){
+    $("#ss").click(function(){
+          signData = [
+                      {name: 'password', value: 123456},
+                    {name: 'username', value: 13559209256},   
+                ];
+         var sign = getSign(signData, 'yscs')
+       $.ajax({
+   type: "POST",
+   url: "http://localhost/yscy/api.php?ulogin",
+   data: {username:"13559209256",password:123456,sign:sign},
+   success: function(msg){
+    
+   }
+});
+    })
 	document.getElementById('js-admin-name').focus();
 })();
 </script>

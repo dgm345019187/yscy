@@ -27,6 +27,7 @@ class AdminPostController extends AdminbaseController {
 	public function index(){
 		$this->_lists(array("post_status"=>array('neq',3)));
 		$this->_getTree();
+               
 		$this->display();
 	}
 	
@@ -187,14 +188,14 @@ class AdminPostController extends AdminbaseController {
 			
 		$this->posts_model
 		->alias("a")
-		->join("__USERS__ c ON a.post_author = c.id")
+		->join("__MEMBER__ c ON a.post_author = c.member_id")
 		->where($where)
 		->limit($page->firstRow , $page->listRows)
 		->order("a.post_date DESC");
 		if(empty($term_id)){
-		    $this->posts_model->field('a.*,c.user_login,c.user_nicename');
+		    $this->posts_model->field('a.*,c.member_name,c.user_nicename');
 		}else{
-		    $this->posts_model->field('a.*,c.user_login,c.user_nicename,b.listorder,b.tid');
+		    $this->posts_model->field('a.*,c.member_name,c.user_nicename,b.listorder,b.tid');
 		    $this->posts_model->join("__TERM_RELATIONSHIPS__ b ON a.id = b.object_id");
 		}
 		$posts=$this->posts_model->select();
@@ -482,5 +483,41 @@ class AdminPostController extends AdminbaseController {
 			}
 		}
 	}
+        //文章关联
+        public function correlation(){
+            $id=I("id");
+            $where["id"]=array("neq",$id);
+           $post=$this->posts_model->where($where)->select();
+           
+           foreach($post as &$v){
+               $post_id=$id;
+               $guanlian_id=$v["id"];
+               if($posts_guanlian=M("posts_guanlian")->where(array("post_id"=>$post_id,"guanlian_id"=>$guanlian_id))->find()){
+                   $v["guanlian"]=1;
+               }else{
+                    $v["guanlian"]=2;
+               }
+           }
+          $this->assign("post_id",$id);
+         $this->assign("info",$post);
+         $this->display();
+        }
+        //取消关联
+        public function guanlian_del(){
+            $id=I("id");
+            $post_id=I("post_id");
+            $post_guanlian=M("posts_guanlian")->where(array("post_id"=>$post_id,"guanlian_id"=>$id))->delete();
+         
+           redirect(U("correlation", array('id' => $post_id)));
+        }
+        //关联文章
+        public function guanlian(){
+            $id=I("id");
+            $post_id=I("post_id");
+            $data["post_id"]=$post_id;
+            $data['guanlian_id']=$id;
+            $post_guanlian=M("posts_guanlian")->add($data);
+             redirect(U("correlation", array('id' => $post_id)));
+        }
 	
 }

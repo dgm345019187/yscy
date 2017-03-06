@@ -16,6 +16,7 @@ class AdminPageController extends AdminbaseController {
 	
 	function _initialize() {
 		parent::_initialize();
+              
 		$this->posts_model =D("Common/Posts");
 	}
 	
@@ -68,8 +69,8 @@ class AdminPageController extends AdminbaseController {
 	    
 	    $posts=$this->posts_model
 	    ->alias("a")
-	    ->field('a.*,c.user_login,c.user_nicename')
-	    ->join("__USERS__ c ON a.post_author = c.id")
+	    ->field('a.*,c.member_name,c.user_nicename')
+	    ->join("__MEMBER__ c ON a.post_author = c.member_id")
 	    ->where($where)
 	    ->limit($page->firstRow , $page->listRows)
 	    ->order("a.post_date DESC")

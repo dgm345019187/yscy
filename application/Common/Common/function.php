@@ -50,7 +50,7 @@ function sp_update_current_user($user){
  * @return int
  */
 function get_current_userid(){
-	$session_user_id=session('user.id');
+	$session_user_id=session('user.member_id');
 	if(!empty($session_user_id)){
 		return $session_user_id;
 	}else{
@@ -859,6 +859,7 @@ function sp_send_email($address,$subject,$message){
 	$mail->Username=C('SP_MAIL_LOGINNAME');
 	$mail->Password=C('SP_MAIL_PASSWORD');
 	// 发送邮件。
+    
 	if(!$mail->Send()) {
 		$mailerror=$mail->ErrorInfo;
 		return array("error"=>1,"message"=>$mailerror);
@@ -1228,15 +1229,15 @@ function sp_get_relative_url($url){
  * @param array $where
  * @return array
  */
-function sp_get_users($tag="field:*;limit:0,8;order:create_time desc;",$where=array()){
+function sp_get_users($tag="field:*;limit:0,8;order:member_time desc;",$where=array()){
 	$where=array();
 	$tag=sp_param_lable($tag);
 	$field = !empty($tag['field']) ? $tag['field'] : '*';
 	$limit = !empty($tag['limit']) ? $tag['limit'] : '8';
-	$order = !empty($tag['order']) ? $tag['order'] : 'create_time desc';
+	$order = !empty($tag['order']) ? $tag['order'] : 'member_time desc';
 
 	//根据参数生成查询条件
-	$mwhere['user_status'] = array('eq',1);
+	$mwhere['member_state'] = array('eq',1);
 	$mwhere['user_type'] = array('eq',2);//default user
 
 	if(is_array($where)){
@@ -1245,7 +1246,7 @@ function sp_get_users($tag="field:*;limit:0,8;order:create_time desc;",$where=ar
 		$where=$mwhere;
 	}
 
-	$users_model=M("Users");
+	$users_model=M("Member");
 
 	$users=$users_model->field($field)->where($where)->order($order)->limit($limit)->select();
 	return $users;
@@ -2161,4 +2162,105 @@ function sp_mobile_code_log($mobile,$code,$expire_time){
     }
     
     return $result;
+}
+function Post($curlPost, $url) {
+
+    $curl = curl_init();
+
+    curl_setopt($curl, CURLOPT_URL, $url);
+
+    curl_setopt($curl, CURLOPT_HEADER, false);
+
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    curl_setopt($curl, CURLOPT_NOBODY, true);
+
+    curl_setopt($curl, CURLOPT_POST, true);
+
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $curlPost);
+
+    $return_str = curl_exec($curl);
+
+    curl_close($curl);
+
+    return $return_str;
+
+}
+function send_mobile_message($code, $mobile) {
+
+    return tuobao($code, $mobile);
+
+}
+
+
+
+function tuobao($code, $mobile) {
+
+
+
+    $code = trimall($code);
+    $Account = 'C49145582';
+    $Password = 'b60f6eb4517815e516e79cc40d03b95c';
+    $target = "http://106.ihuyi.cn/webservice/sms.php?method=Submit";
+    $message = "您的验证码是：".$code."。请不要把验证码泄露给其他人。";
+
+    $post_data = "account=$Account&password=$Password&mobile=" . $mobile . "&content=" . rawurlencode($message);
+
+    //密码可以使用明文密码或使用32位MD5加密
+
+    $get = Post($post_data, $target);
+
+    $result = xml_to_array($get);
+
+    if ($result['SubmitResult']['code'] != 2) {
+        $result2['phone'] = $mobile;
+
+        $result2['code'] = $result['SubmitResult']['code'];
+
+        $result2['message'] = $result['SubmitResult']['msg'];
+        return $result2;
+    }
+
+    return $result;
+
+}
+function xml_to_array($xml) {
+    $reg = "/<(\w+)[^>]*>([\\x00-\\xFF]*)<\\/\\1>/";
+    if (preg_match_all($reg, $xml, $matches)) {
+        $count = count($matches[0]);
+        for ($i = 0; $i < $count; $i++) {
+            $subxml = $matches[2][$i];
+            $key = $matches[1][$i];
+            if (preg_match($reg, $subxml)) {
+                $arr[$key] = xml_to_array($subxml);
+            } else {
+                $arr[$key] = $subxml;
+            }
+        }
+    }
+    return $arr;
+}
+function checkPhoneFormat($phone)
+{
+    if(strlen($phone)!=11)
+    {
+        return false;
+    }
+    if($phone{0}!='1')
+    {
+        return false;
+    }
+    for($i=0;$i<11;++$i)
+    {
+        if(!in_array($phone{$i},array('1','2','3','4','5','6','7','8','9','0')))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+function trimall($str) {
+    $qian = array(" ", "　", "\t", "\n", "\r");
+    $hou = array("", "", "", "", "");
+    return str_replace($qian, $hou, $str);
 }

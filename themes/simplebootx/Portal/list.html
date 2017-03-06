@@ -90,7 +90,7 @@
 	        		<h2>最新加入</h2>
 	        	</div>
 	        	<php>
-	        	$last_users=sp_get_users("field:*;limit:0,8;order:create_time desc;");
+	        	$last_users=sp_get_users("field:*;limit:0,8;order:member_time desc;");
 	        	</php>
 	        	<ul class="list-unstyled tc-photos margin-bottom-30">
 	        		<foreach name="last_users" item="vo">

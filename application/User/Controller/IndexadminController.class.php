@@ -7,6 +7,7 @@ class IndexadminController extends AdminbaseController {
     
     // 后台本站用户列表
     public function index(){
+     
         $where=array();
         $request=I('request.');
         

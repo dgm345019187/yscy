@@ -23,8 +23,8 @@ class HomebaseController extends AppframeController {
 					$thinkcmf_auth=sp_authcode($_COOKIE['thinkcmf_auth'],"DECODE");
 					$thinkcmf_auth=explode("\t", $thinkcmf_auth);
 					$auth_username=$thinkcmf_auth[1];
-					$users_model=M('Users');
-					$where['user_login']=$auth_username;
+					$users_model=M('Member');
+					$where['member_name']=$auth_username;
 					$user=$users_model->where($where)->find();
 					if(!empty($user)){
 						$is_login=true;
@@ -56,7 +56,8 @@ class HomebaseController extends AppframeController {
 	 * 检查用户状态
 	 */
 	protected function  check_user(){
-	    $user_status=M('Users')->where(array("id"=>sp_get_current_userid()))->getField("user_status");
+	    $user_status=M('Member')->where(array("member_id"=>sp_get_current_userid()))->getField("member_state");
+           
 		if($user_status==2){
 			$this->error('您还没有激活账号，请激活后再使用！',U("user/login/active"));
 		}
@@ -81,9 +82,9 @@ class HomebaseController extends AppframeController {
 		$username=session('user.user_login');
 	
 		$activekey=md5($uid.time().uniqid());
-		$users_model=M("Users");
+		$users_model=M("Member");
 	
-		$result=$users_model->where(array("id"=>$uid))->save(array("user_activation_key"=>$activekey));
+		$result=$users_model->where(array("member_id"=>$uid))->save(array("user_activation_key"=>$activekey));
 		if(!$result){
 			$this->error('激活码生成失败！');
 		}

@@ -53,7 +53,7 @@ class LoginController extends HomebaseController {
 			if(!sp_check_verify_code()){
 				$this->error("验证码错误！");
 			}else{
-				$users_model=M("Users");
+				$users_model=M("Member");
 				$rules = array(
 						//array(验证字段,验证规则,错误提示,验证条件,附加规则,验证时间)
 						array('email', 'require', '邮箱不能为空！', 1 ),
@@ -64,7 +64,7 @@ class LoginController extends HomebaseController {
 					$this->error($users_model->getError());
 				}else{
 					$email=I("post.email");
-					$find_user=$users_model->where(array("user_email"=>$email))->find();
+					$find_user=$users_model->where(array("member_email"=>$email))->find();
 					if($find_user){
 						$this->_send_to_resetpass($find_user);
 						$this->success("密码重置邮件发送成功！",__ROOT__."/");
@@ -94,7 +94,7 @@ class LoginController extends HomebaseController {
                 array('password','5,20',"密码长度至少5位，最多20位！",1,'length',3),
             );
             	
-    	    $users_model=M("Users");
+    	    $users_model=M("Member");
     	     
     	    if($users_model->validate($rules)->create()===false){
     	        $this->error($users_model->getError());
@@ -109,10 +109,10 @@ class LoginController extends HomebaseController {
     	     
     	    $where['mobile']=$mobile;
     	     
-    	    $users_model=M("Users");
+    	    $users_model=M("Member");
     	    $result = $users_model->where($where)->count();
     	    if($result){
-    	       $result=$users_model->where($where)->save(array('user_pass' => sp_password($password)));
+    	       $result=$users_model->where($where)->save(array('member_passwd' => sp_password($password)));
     	       if($result!==false){
     	           $this->success("密码重置成功！");
     	       }else{
@@ -132,13 +132,13 @@ class LoginController extends HomebaseController {
 		$options=get_site_options();
 		//邮件标题
 		$title = $options['site_name']."密码重置";
-		$uid=$user['id'];
-		$username=$user['user_login'];
+		$uid=$user['member_id'];
+		$username=$user['member_name'];
 	
 		$activekey=md5($uid.time().uniqid());
-		$users_model=M("Users");
-	
-		$result=$users_model->where(array("id"=>$uid))->save(array("user_activation_key"=>$activekey));
+		$users_model=M("Member");
+                    
+		$result=$users_model->where(array("member_id"=>$uid))->save(array("user_activation_key"=>$activekey));
 		if(!$result){
 			$this->error('密码重置激活码生成失败！');
 		}
@@ -151,8 +151,8 @@ class LoginController extends HomebaseController {
 		<a href="http://#link#">http://#link#</a>
 hello;
 		$content = str_replace(array('http://#link#','#username#'), array($url,$username),$template);
-	
-		$send_result=sp_send_email($user['user_email'], $title, $content);
+                 
+		$send_result=sp_send_email($user['member_email'], $title, $content);
 	
 		if($send_result['error']){
 			$this->error('密码重置邮件发送失败！');
@@ -161,7 +161,7 @@ hello;
 	
 	// 前台密码重置
 	public function password_reset(){
-	    $users_model=M("Users");
+	    $users_model=M("Member");
 	    $hash=I("get.hash");
 	    $find_user=$users_model->where(array("user_activation_key"=>$hash))->find();
 	    if (empty($find_user)){
@@ -177,11 +177,11 @@ hello;
 			if(!sp_check_verify_code()){
 				$this->error("验证码错误！");
 			}else{
-				$users_model=M("Users");
+				$users_model=M("Member");
 				$rules = array(
 						//array(验证字段,验证规则,错误提示,验证条件,附加规则,验证时间)
-						array('password', 'require', '密码不能为空！', 1 ),
-						array('password','5,20',"密码长度至少5位，最多20位！",1,'length',3),
+						array('member_passwd', 'require', '密码不能为空！', 1 ),
+						array('member_passwd','5,20',"密码长度至少5位，最多20位！",1,'length',3),
 						array('repassword', 'require', '重复密码不能为空！', 1 ),
 						array('repassword','password','确认密码不正确',0,'confirm'),
 						array('hash', 'require', '重复密码激活码不能空！', 1 ),
@@ -191,7 +191,7 @@ hello;
 				}else{
 					$password=sp_password(I("post.password"));
 					$hash=I("post.hash");
-					$result=$users_model->where(array("user_activation_key"=>$hash))->save(array("user_pass"=>$password,"user_activation_key"=>""));
+					$result=$users_model->where(array("user_activation_key"=>$hash))->save(array("member_passwd"=>$password,"user_activation_key"=>""));
 					if($result){
 						$this->success("密码重置成功，请登录！",U("user/login/index"));
 					}else {
@@ -235,21 +235,21 @@ hello;
 	
     // 处理前台用户手机登录
     private function _do_mobile_login(){
-        $users_model=M('Users');
-        $where = array("user_status"=>1);
+        $users_model=M('Member');
+        $where = array("member_state"=>1);
         $where['mobile']=I('post.username');
         $password=I('post.password');
         $result = $users_model->where($where)->find();
         
         if(!empty($result)){
-            if(sp_compare_password($password, $result['user_pass'])){
+            if(sp_compare_password($password, $result['member_passwd'])){
                 session('user',$result);
                 //写入此次登录信息
                 $data = array(
-                    'last_login_time' => date("Y-m-d H:i:s"),
-                    'last_login_ip' => get_client_ip(0,true),
+                    'member_login_time' => date("Y-m-d H:i:s"),
+                    'member_login_ip' => get_client_ip(0,true),
                 );
-                $users_model->where(array('member_id'=>$result["id"]))->save($data);
+                $users_model->where(array('member_id'=>$result["member_id"]))->save($data);
                 $session_login_http_referer=session('login_http_referer');
                 $redirect=empty($session_login_http_referer)?__ROOT__."/":$session_login_http_referer;
                 session('login_http_referer','');
@@ -276,6 +276,7 @@ hello;
         }
         $users_model=M('member');
         $result = $users_model->where($where)->find();
+        //print_r($result);die();
         $ucenter_syn=C("UCENTER_ENABLED");
         
         $ucenter_old_user_login=false;
@@ -332,7 +333,7 @@ hello;
                         break;
                     case -2://密码错
                         if($result){//本应用已经有这个用户
-                            if(sp_compare_password($password, $result['user_pass'])){//本应用已经有这个用户,且密码正确，同步用户
+                            if(sp_compare_password($password, $result['member_passwd'])){//本应用已经有这个用户,且密码正确，同步用户
                                 $uc_user_edit_status=uc_user_edit($username,"",$password,"",1);
                                 if($uc_user_edit_status<=0){
                                     $this->error("登陆错误！");
@@ -363,7 +364,7 @@ hello;
                     'member_login_time' => date("Y-m-d H:i:s"),
                     'member_login_ip' => get_client_ip(0,true),
                 );
-                $users_model->where("member_id=".$result["id"])->save($data);
+                $users_model->where("member_id=".$result["member_id"])->save($data);
 
                 $session_login_http_referer=session('login_http_referer');
                 $redirect=empty($session_login_http_referer)?__ROOT__."/":$session_login_http_referer;

@@ -20,9 +20,9 @@ class ArticleController extends HomebaseController {
     	
     	$article=$posts_model
     	->alias("a")
-    	->field('a.*,c.user_login,c.user_nicename,b.term_id')
+    	->field('a.*,c.member_name,c.user_nicename,b.term_id')
     	->join("__TERM_RELATIONSHIPS__ b ON a.id = b.object_id")
-		->join("__USERS__ c ON a.post_author = c.id")
+		->join("__MEMBER__ c ON a.post_author = c.member_id")
 		->where(array('a.id'=>$article_id,'b.term_id'=>$term_id))
 		->find();
     	
@@ -44,7 +44,7 @@ class ArticleController extends HomebaseController {
     	$article_date=$article['post_date'];
     	
     	$join = '__POSTS__ as b on a.object_id =b.id';
-    	$join2= '__USERS__ as c on b.post_author = c.id';
+    	$join2= '__MEMBER__ as c on b.post_author = c.member_id';
     	
     	$term_relationships_model= M("TermRelationships");
     	

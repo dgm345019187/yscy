@@ -90,6 +90,7 @@ class NavController extends AdminbaseController {
 	
 	// 导航菜单添加提交
 	public function add_post() {
+            
 		if (IS_POST) {
 			$data=I("post.");
 			if(isset($data['external_href'])){

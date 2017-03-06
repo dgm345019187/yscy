@@ -10,9 +10,9 @@ class IndexController extends HomebaseController {
 	    
 		$id=I("get.id",0,'intval');
 		
-		$users_model=M("Users");
+		$users_model=M("Member");
 		
-		$user=$users_model->where(array("id"=>$id))->find();
+		$user=$users_model->where(array("member_id"=>$id))->find();
 		
 		if(empty($user)){
 			$this->error("查无此人！");
@@ -25,6 +25,7 @@ class IndexController extends HomebaseController {
     
     // 前台ajax 判断用户登录状态接口
     function is_login(){
+      
     	if(sp_is_user_login()){
     		$this->ajaxReturn(array("status"=>1,"user"=>sp_get_current_user()));
     	}else{

@@ -7,12 +7,12 @@ class PublicController extends HomebaseController {
     
     // 用户头像api
 	public function avatar(){
-		$users_model=M("Users");
+		$users_model=M("Member");
 		$id=I("get.id",0,"intval");
 		
-		$find_user=$users_model->field('avatar')->where(array("id"=>$id))->find();
+		$find_user=$users_model->field('member_avatar')->where(array("member_id"=>$id))->find();
 		
-		$avatar=$find_user['avatar'];
+		$avatar=$find_user['member_avatar'];
 		$avatar=preg_replace("/^avatar\//", '', $avatar);//2.2以后头像路径统一以avatar/开头
 		$should_show_default=false;
 		

@@ -14,6 +14,7 @@ class ListController extends HomebaseController {
 	// 前台文章列表
 	public function index() {
 	    $term_id=I('get.id',0,'intval');
+           
 		$term=sp_get_term($term_id);
 		
 		if(empty($term)){
@@ -27,6 +28,7 @@ class ListController extends HomebaseController {
 		
 		$tplname=$term["list_tpl"];
     	$tplname=sp_get_apphome_tpl($tplname, "list");
+       // print_r($term);die();
     	$this->assign($term);
     	$this->assign('cat_id', $term_id);
     	$this->display(":$tplname");
