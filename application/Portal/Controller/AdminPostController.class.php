@@ -120,6 +120,7 @@ class AdminPostController extends AdminbaseController {
 			$article=I("post.post");
 			$article['smeta']=json_encode($_POST['smeta']);
 			$article['post_content']=htmlspecialchars_decode($article['post_content']);
+                 //print_r($article);die();
 			$result=$this->posts_model->save($article);
 			if ($result!==false) {
 				$this->success("保存成功！");

@@ -2264,3 +2264,25 @@ function trimall($str) {
     $hou = array("", "", "", "", "");
     return str_replace($qian, $hou, $str);
 }
+function get_first_menu(){
+    $navs=M("nav")->where(array("parentid"=>0,"status"=>1))->select();
+   foreach ($navs as $key=>$nav){
+		$href=htmlspecialchars_decode($nav['href']);
+		$hrefold=$href;
+		if(strpos($hrefold,"{")){//序列 化的数据
+			$href=unserialize(stripslashes($nav['href']));
+            $href=strtolower(leuu($href['action'],$href['param']));
+			$href=preg_replace("/\/$default_app\//", "/",$href);
+			$href=preg_replace("/$g=$default_app&/", "",$href);
+		}else{
+			if($hrefold=="home"){
+				$href=__ROOT__."/";
+			}else{
+				$href=$hrefold;
+			}
+		}
+		$nav['href']=$href;
+		$navs[$key]=$nav;
+	}
+        return $navs;
+}

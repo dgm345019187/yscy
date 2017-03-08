@@ -11,8 +11,10 @@ class AdminbaseController extends AppframeController {
 	public function __construct() {
 	    hook('admin_begin');
 		$admintpl_path=C("SP_ADMIN_TMPL_PATH").C("SP_ADMIN_DEFAULT_THEME")."/";
+              
 		C("TMPL_ACTION_SUCCESS",$admintpl_path.C("SP_ADMIN_TMPL_ACTION_SUCCESS"));
 		C("TMPL_ACTION_ERROR",$admintpl_path.C("SP_ADMIN_TMPL_ACTION_ERROR"));
+             
 		parent::__construct();
 		$time=time();
 		$this->assign("js_debug",APP_DEBUG?"?v=$time":"");
@@ -21,7 +23,7 @@ class AdminbaseController extends AppframeController {
 	function _initialize(){
 	    parent::_initialize();
 	    define("TMPL_PATH", C("SP_ADMIN_TMPL_PATH"));
-	    
+	  
 	    //暂时取消后台多语言
 	    $this->load_app_admin_menu_lang();
 	    

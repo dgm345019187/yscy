@@ -1,0 +1,53 @@
+<admintpl file="header" />
+</head>
+<body>
+    <div class="wrap">
+
+        <form method="post" class="js-ajax-form" action="{:U('AdminTerm/listorders')}">
+
+            <table class="table table-hover table-bordered table-list">
+                <thead>
+                    <tr>
+
+                        <th width="50">ID</th>
+                        <th>标题</th>
+                        <th>上报人</th>
+                        <th>联系电话</th>
+                        <th>状态</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <foreach name="info" item="vo"  key="k">
+                    <tr>
+                        <td>{$k+1}</td>
+                        <td>{$vo.title}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.phone}</td>
+                        <td>
+                            <if condition="$vo.status eq 0">
+                              待回复
+                            <else/>
+                              已回复
+                            </if>
+                        </td>
+                        <td>{$vo.addtime|date='Y-m-d H:i',###}</td>
+                        <td>
+                            <if condition="$vo.status eq 0">
+                            <a href="{:U('suggestion',array('id'=>$vo['id']))}">回复</a>
+                            <else/>
+                             <a href="{:U('suggestion_chakan',array('id'=>$vo['id']))}">查看</a>
+                            </if>
+                        </td>
+                    </tr>
+                    </foreach>
+                </tbody>
+
+            </table>
+
+        </form>
+    </div>
+    <script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

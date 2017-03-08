@@ -1,0 +1,51 @@
+
+<admintpl file="header" />
+</head>
+<body>
+    <div class="wrap">
+
+        <form method="post" class="js-ajax-form" action="{:U('add')}">
+
+            <table class="table table-bordered">
+                <tr>
+                    <th width="80">标题</th>
+                    <td>
+                      {$info.title}
+                    </td>
+                </tr>
+                 <tr>
+                    <th width="80">上报人</th>
+                    <td>
+{$info.name}
+                    </td>
+                </tr>
+                 <tr>
+                    <th width="80">时间</th>
+                    <td>
+                {$info.addtime|date='Y-m-d H:i',###}
+                    </td>
+                </tr>
+                 <tr>
+                    <th width="80">内容</th>
+                    <td>
+                    {$info.content}
+                    </td>
+                </tr>
+                  <tr>
+                    <th width="80">回复</th>
+                    <td>
+                      <textarea name="back" id="description" style="width: 98%; height: 50px;" placeholder="请填写回复"></textarea>
+                    </td>
+                </tr>
+            </table>
+             <input type="input" style="display: none" value="{$info.id}" name="id">
+<div class="form-actions">
+    
+				<button class="btn btn-primary " type="submit">提交</button>
+				<a class="btn" href="{:U('index')}">返回</a>
+			</div>
+        </form>
+    </div>
+    <script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

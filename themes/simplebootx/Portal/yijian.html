@@ -10,77 +10,68 @@
 <tc_include file="Public:nav" />
 <div class="container">
     <div>
-         <foreach name="pid" item="vo" >
+        <foreach name="pid" item="vo" >
             <div class="item" style='float:left;width:23%;margin: 10px;text-align:center'>              
-                    <div class="header">
-                        <h3>
-                            <if condition="$flag eq $vo['id']">
+                <div class="header">
+                    <h3>
+                        <if condition="$flag eq $vo['id']">
                             <a href="{$vo.href}&pid={$id}&flag={$vo.id}"><font color="red">{$vo.label}</font></a>
                             <else/>
                             <a href="{$vo.href}&pid={$id}&flag={$vo.id}">{$vo.label}</a>
-                            </if>
-                        </h3>
-                        <hr>
-                    </div>   
+                        </if>
+                    </h3>
+                    <hr>
+                </div>   
             </div>
         </foreach>
-            <div class="item" style='float:left;width:23%;margin: 10px;text-align:center'>              
-                    <div class="header">
-                        <h3>
+        <div class="item" style='float:left;width:23%;margin: 10px;text-align:center'>              
+            <div class="header">
+                <h3>
 
-<empty name="flag">
-    <a href="{:U('yijian')}&pid={$id}"><font color="red">意见反馈</font></a>
-     
-     <else/>
-      <a href="{:U('yijian')}&pid={$id}">意见反馈</a>
-</empty>
-                              
-                        </h3>
-                        <hr>
-                    </div>   
-            </div>
+                    <empty name="flag">
+                        <a href="{:U('yijian')}&pid={$id}"><font color="red">意见反馈</font></a>
+
+                        <else/>
+                        <a href="{:U('yijian')}&pid={$id}">意见反馈</a>
+                    </empty>
+                </h3>
+                <hr>
+            </div>   
+        </div>
     </div>
-    
-    <php> $lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",20); </php>
+<php> $lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",20); </php>
     <div id="container" style='clear: both'>
         <div class="grid-sizer"></div>
-        <volist name="lists['posts']" id="vo">
-            <php>
-                $smeta=json_decode($vo['smeta'], true);
-            </php>
-
+        <volist name="infos" id="vv">
+      
             <div class="item">
                 <div class="tc-gridbox">
                     <div class="header">
-
-                        <if condition="!empty($smeta['thumb'])">
-                            <div class="item-image" >
-                                <a href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">
-                                    <img src="{:sp_get_asset_upload_path($smeta['thumb'])}"
-                                         class="img-responsive" alt="{$vo.post_title}" style='height:250px'>
-                                </a>
-                            </div>
-                            <else />
-                        </if>
+                        <div class="item-image" >
+                            <a href="{:U('yijianxiangqing')}&id={$vv.id}">
+                                <img src="http://192.168.1.22/yscy/data/upload/{$vv.pic}"
+                                     class="img-responsive" alt="{$vv.title}" style='height:250px'>
+                            </a>
+                        </div>
 
                         <h3>
-                            <a href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_title}</a>
+                            <a href="{:U('yijianxiangqing')}&id={$vv.id}">{$vv.title}</a>
                         </h3>
                         <hr>
                     </div>
                     <div class="body">
-                        <a href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_excerpt|msubstr=0,256}</a>
+                        <a href="{:U('yijianxiangqing')}&id={$vv.id}">{$vv.content|msubstr=0,256}</a>
                     </div>
                     <div class="footer">
                         <div class="pull-left">
-                            <span class="meta">{$vo.post_date}</span>
+                            <span class="meta">{$vv.addtime|date='Y-m-d H:i:s',###}</span>
                         </div>
                         <div class="pull-right">
-                            <a href="javascript:;"><i class="fa fa-eye"></i><span>{$vo.post_hits}</span></a>
-                            <a href="{:U('article/do_like',array('id'=>$vo['object_id']))}" class="js-count-btn"><i class="fa fa-thumbs-up"></i><span class="count">{$vo.post_like}</span></a> 
-                            <a href="{:U('user/favorite/do_favorite',array('id'=>$vo['object_id']))}" class="js-favorite-btn" data-title="{$vo.post_title}" data-url="{:leuu('portal/article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}" data-key="{:sp_get_favorite_key('posts',$vo['object_id'])}">
-                                <i class="fa fa-star-o"></i>
-                            </a>
+<!--                                                        <a href="javascript:;"><i class="fa fa-eye"></i><span>{$vo.post_hits}</span></a>
+                                                        <a href="{:U('article/do_like',array('id'=>$vo['object_id']))}" class="js-count-btn"><i class="fa fa-thumbs-up"></i><span class="count">{$vo.post_like}</span></a> 
+                                                        <a href="{:U('user/favorite/do_favorite',array('id'=>$vo['object_id']))}" class="js-favorite-btn" data-title="{$vo.post_title}" data-url="{:leuu('portal/article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}" data-key="{:sp_get_favorite_key('posts',$vo['object_id'])}">
+                                                            <i class="fa fa-star-o"></i>
+                                                        </a>-->
                         </div>
                         <div class="clearfix"></div>
                     </div>

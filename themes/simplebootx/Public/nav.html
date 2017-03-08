@@ -7,20 +7,24 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </a>
-       <a class="brand" href="__ROOT__/"><img src="__TMPL__Public/assets/images/logo.png"/></a>
+       <a class="brand" href="__ROOT__/"><img src="__TMPL__Public/assets/images/logo1.png"/></a>
        <div class="nav-collapse collapse" id="main-menu">
        	<?php
-			$effected_id="main-menu";
-		  	$filetpl="<a href='\$href' target='\$target'>\$label</a>";
-		  	$foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>";
-		  	$ul_class="dropdown-menu" ;
-		  	$li_class="li-class" ;
-		  	$style="nav";
-		  	$showlevel=6;
-		  	$dropdown='dropdown';
-		  	echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
+		$info=get_first_menu();
+		 
 		?>
-		
+		<ul id="main-menu" class="nav">
+                    <foreach name="info" item="vo">
+                        <if condition="$vo.label eq '首页' ">
+                             <li class="li-class" id="menu-item-5"><a href="{$vo.href}" target="">{$vo.label}</a></li>
+                             <else/>
+                               <li class="li-class" id="menu-item-5"><a href="{$vo.href}&id={$vo.id}" target="">{$vo.label}</a></li>
+                            </if>
+                      
+                       
+                    </foreach>
+
+                </ul>
 		<ul class="nav pull-right" id="main-menu-user">
 	
 			<li class="dropdown user login">

@@ -1,0 +1,6 @@
+[ 2017-03-08T17:51:21+08:00 ] ::1 /yscy/index.php?g=&m=list&a=yijian_index&id=3
+ERR: 模板不存在:themes/simplebootx/Portal/List/yijian_index.html
+
+[ 2017-03-08T17:52:50+08:00 ] ::1 /yscy/index.php?g=&m=list&a=yijianxiangqing&id=3
+ERR: 模板不存在:themes/simplebootx/Portal/List/yijianxiangqing.html
+

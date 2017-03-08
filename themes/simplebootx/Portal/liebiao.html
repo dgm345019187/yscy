@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{$name} {$seo_title} {$site_name}</title>
+        <meta name="keywords" content="{$seo_keywords}" />
+        <meta name="description" content="{$seo_description}">
+    <tc_include file="Public:head" />
+</head>
+<body>
+<tc_include file="Public:nav" />
+<div class="container">
+   
+    <div id="container">
+
+        <foreach name="list" item="vo" >
+            <div class="item" style='text-align:center'>          
+                    <div class="header">
+                        <h3>
+                            <a href="{$vo.href}&pid={$id}&flag={$vo.id}">{$vo.label}</a>
+                        </h3>
+                        <hr>
+                    </div>   
+            </div>
+        </foreach>
+          <div class="item" style='text-align:center'>          
+                    <div class="header">
+                        <h3>
+                            <a href="{:U('yijian')}&pid={$id}">意见反馈</a>
+                        </h3>
+                        <hr>
+                    </div>   
+            </div>
+    </div>
+   
+
+</div>
+<tc_include file="Public:footer" />
+<!-- JavaScript -->
+<tc_include file="Public:scripts" />
+<script src="__TMPL__Public/assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="__TMPL__Public/assets/js/masonry.pkgd.min.js"></script>
+<script src="__TMPL__Public/assets/js/jquery.infiniteScroll.js"></script>
+<script>
+
+    $(function () {
+        var $container = $('#container').masonry({
+            columnWidth: '.grid-sizer',
+            itemSelector: '.item'
+        });
+
+        $container.imagesLoaded().progress(function (imgLoad, image) {
+            var msnry = $container.data('masonry');
+            var itemSelector = msnry.options.itemSelector;
+            var $item = $(image.img).parents(itemSelector);
+            $('.tc-gridbox', $item).css('opacity', 1);
+            msnry.layout();
+        });
+
+        $('#nextpage').infiniteScroll({
+            loading: '.js-infinite-scroll-loading',
+            total_pages: {$lists['total_pages']},
+            success: function (content) {
+                var $items = $(content).find('#container .item');
+                if ($items.length > 0) {
+                    //$('.tc-gridbox',$items).css('opacity',1);
+                    $container.append($items)
+                            // add and layout newly prepended items
+                            .masonry('appended', $items);
+                    $items.imagesLoaded().progress(function (imgLoad, image) {
+                        var msnry = $container.data('masonry');
+                        var itemSelector = msnry.options.itemSelector;
+                        var $item = $(image.img).parents(itemSelector);
+                        $('.tc-gridbox', $item).css('opacity', 1);
+                        msnry.layout();
+                    });
+                }
+            },
+            finish: function () {
+
+            }
+        });
+    });
+
+
+
+
+</script>
+</body>
+</html>
